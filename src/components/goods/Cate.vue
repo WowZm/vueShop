@@ -61,7 +61,7 @@
     <!-- 添加分类的对话框 -->
     <el-dialog title="添加分类" :visible.sync="addCateDialogVisible"
       width="50%" @close="addCateDialogClosed">
-      <el-form :model="addCateForm" :rules="addCateFormRules" ref="addFormRef" label-width="70px">
+      <el-form :model="addCateForm" :rules="addCateFormRules" ref="addCateFormRef" label-width="70px">
         <el-form-item label="分类名称：" prop="cat_name" label-width="100px">
           <el-input v-model="addCateForm.cat_name"></el-input>
         </el-form-item>
@@ -157,7 +157,7 @@ export default {
         params: this.queryInfo,
       })
       if (res.meta.status !== 200) {
-        return this.message.error("获取商品分类失败！")
+        return this.$message.error("获取商品分类失败！")
       }
       console.log(res.data)
       // 数据列表，赋值给CateList
@@ -182,7 +182,7 @@ export default {
         params: { type: 2 }
       });
       if (res.meta.status !== 200) {
-        return this.message.error("获取父级分类数据失败！");
+        return this.$message.error("获取父级分类数据失败！");
       }
       console.log(res.data);
       this.parentCateList = res.data;
@@ -210,9 +210,9 @@ export default {
         if(!valid) return
         const {data: res} = await this.$http.post('categories', this.addCateForm)
         if (res.meta.status !== 201) {
-        return this.message.error("添加分类失败！");
+        return this.$message.error("添加分类失败！");
       }
-      return this.message.error("添加分类成功！");
+      return this.$message.error("添加分类成功！");
       this.getCateList()
       this.addCateDialogVisible = false;
       })
