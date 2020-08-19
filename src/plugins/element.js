@@ -35,8 +35,13 @@ import { Form,
         Step,
         Checkbox,
         CheckboxGroup,
-        Upload
+        Upload,
+        Timeline,
+        TimelineItem
     } from 'element-ui'
+
+// import Timeline from './timeline/index.js'
+// import TimelineItem from './timeline-item/index.js'
 
 Vue.use(Button)
 Vue.use(Form)
@@ -73,5 +78,8 @@ Vue.use(Step)
 Vue.use(Checkbox)
 Vue.use(CheckboxGroup)
 Vue.use(Upload)
+Vue.use(Timeline)
+Vue.use(TimelineItem)
+
 Vue.prototype.$message = Message//挂载到Vue
 Vue.prototype.$confirm = MessageBox.confirm//挂载到Vue
